@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanmay Gharat — Full Stack & DevOps Engineer</title>
+    <meta name="description" content="Tanmay Gharat is a Full Stack & DevOps Developer and Co-Founder & CTO at Astittva. Building scalable architectures and consumer experiences from Mumbai.">
+    <meta name="author" content="Tanmay P. Gharat">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tanmay Gharat — Full Stack & DevOps Engineer">
+    <meta property="og:description" content="Portfolio of Tanmay Gharat. Co-Founder & CTO at Astittva, specializing in backend systems, full-stack development, and DevOps.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <style>
+/* ========================================================================
+   TANMAY GHARAT PORTFOLIO — DESIGN SYSTEM
+   Pure Black #000 + PP Mondwest Regular + PP Neue Montreal Book
+   Linear Wine Gradient + #141414 Bento Cards
+   ======================================================================== */
+
+/* 1. Typography Fonts */
+@font-face {
+    font-family: "PP Mondwest Regular";
+    src: url("fonts/PPMondwest-Regular.woff2") format("woff2");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "PP Neue Montreal Book";
+    src: url("fonts/PPNeueMontreal-Book.woff2") format("woff2");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "PP Neue Montreal Medium";
+    src: url("fonts/PPNeueMontreal-Medium.woff2") format("woff2");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* 2. Design Tokens */
+:root {
+    --font-heading: "PP Mondwest Regular", Georgia, serif;
+    --font-body: "PP Neue Montreal Book", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-medium: "PP Neue Montreal Medium", sans-serif;
+
+    --color-bg: #000000;
+    --color-card: rgb(20, 20, 20);
+    --color-card-border: rgba(255, 255, 255, 0.05);
+
+    --color-text-title: rgba(255, 255, 255, 0.96);
+    --color-text-body: rgba(255, 255, 255, 0.64);
+    --color-text-tag: rgba(255, 255, 255, 0.38);
+    --color-text-muted: #666;
+
+    --color-crimson: #dd0e45;
+    --color-wine-from: rgb(30, 11, 15);
+    --color-wine-to: rgb(67, 15, 27);
+
+    --container-width: 1000px;
+    --card-radius: 40px;
+}
+
+/* 3. Base & Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+    color-scheme: dark;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text-body);
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background-color: var(--color-crimson);
+    color: #fff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container-1000 {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* 4. Floating Pill Navigation */
+.nav-island-fixed {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.nav-island-capsule {
+    display: flex;
+    align-items: center;
+    background: rgba(18, 18, 18, 0.82);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 9999px;
+    height: 52px;
+    padding: 0 16px 0 10px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.8);
+    gap: 0;
+    white-space: nowrap;
+}
+
+.nav-monogram-box {
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    color: #000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-medium);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: -0.04em;
+    flex-shrink: 0;
+}
+
+.nav-sep {
+    width: 1px;
+    height: 16px;
+    background: rgba(255,255,255,0.12);
+    margin: 0 12px 0 14px;
+    flex-shrink: 0;
+}
+
+.nav-links-row {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    list-style: none;
+}
+
+.nav-link-btn {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-text-body);
+    padding: 7px 14px;
+    border-radius: 9999px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.nav-link-btn:hover,
+.nav-link-btn.active {
+    color: #fff;
+    background: rgba(255,255,255,0.07);
+}
+
+/* 5. Side Rail Dots */
+.side-scroll-rail {
+    position: fixed;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 100;
+}
+
+.side-rail-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    transition: all 0.25s ease;
+    display: block;
+}
+
+.side-rail-dot.active {
+    background: #fff;
+    transform: scale(1.7);
+    box-shadow: 0 0 10px rgba(255,255,255,0.7);
+}
+
+/* 6. Hero Section */
+.hero-stage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 680px;
+    max-height: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 24px;
+    overflow: hidden;
+}
+
+.hero-crimson-orb {
+    position: absolute;
+    top: -400px;
+    left: calc(50% - 240px);
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background-color: var(--color-crimson);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-crimson-blur {
+    position: absolute;
+    inset: -120px;
+    background: radial-gradient(circle at 50% 0%, var(--color-crimson) 0%, transparent 58%);
+    filter: blur(100px);
+    opacity: 0.38;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-vertical-lines {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.v-line {
+    width: 1.5px;
+    background: linear-gradient(#fff 0%, transparent 100%);
+}
+
+.v-line.h-100 { height: 100px; }
+.v-line.h-260 { height: 260px; }
+.v-line.h-420 { height: 420px; }
+.v-line.h-580 { height: 580px; }
+
+.hero-core {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+}
+
+.hero-title-mondwest {
+    font-family: var(--font-heading);
+    font-size: clamp(50px, 6.5vw, 78px);
+    line-height: 1.1;
+    color: var(--color-text-title);
+    font-weight: 400;
+    letter-spacing: -0.5px;
+}
+
+.hero-subtitle-montreal {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--color-text-body);
+    max-width: 560px;
+}
+
+.hero-btn-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 9999px;
+    padding: 12px 32px;
+    color: var(--color-text-title);
+    font-size: 14px;
+    font-family: var(--font-body);
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    margin-top: 6px;
+}
+
+.hero-btn-pill:hover {
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+/* 7. Shipped Section */
+.shipped-section {
+    padding: 100px 0 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.shipped-heading-mondwest {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 4.5vw, 52px);
+    line-height: 1.15;
+    color: var(--color-text-title);
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 52px;
+    letter-spacing: -0.4px;
+}
+
+/* 8. Featured Wine Hero Card */
+.featured-wine-card {
+    width: 100%;
+    background: linear-gradient(64deg, rgb(30, 11, 15) 0%, rgb(67, 15, 27) 100%);
+    border: 1.5px solid rgba(255,255,255,0.04);
+    border-radius: var(--card-radius);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    padding: 56px 48px 0 56px;
+    min-height: 500px;
+    gap: 32px;
+    margin-bottom: 24px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.featured-wine-card:hover {
+    border-color: rgba(255,255,255,0.12);
+    transform: translateY(-4px);
+}
+
+.featured-col-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 56px;
+}
+
+.card-tag-mono {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-text-tag);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+}
+
+.card-title-mondwest {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.2vw, 38px);
+    line-height: 1.18;
+    color: var(--color-text-title);
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    margin-bottom: 14px;
+}
+
+.card-desc-montreal {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--color-text-body);
+    max-width: 400px;
+    margin-bottom: 32px;
+}
+
+.card-read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 9999px;
+    padding: 10px 22px;
+    color: var(--color-text-title);
+    font-size: 14px;
+    font-family: var(--font-body);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-top: auto;
+}
+
+.card-read-more-btn:hover {
+    background: rgba(255,255,255,0.16);
+    transform: translateY(-2px);
+}
+
+.featured-col-right {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.featured-iphone-frame {
+    width: 260px;
+    height: 400px;
+    background: #050505;
+    border: 5px solid #2a2a2d;
+    border-bottom: none;
+    border-radius: 38px 38px 0 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.95);
+}
+
+.iphone-top-island {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 20px;
+    background: #000;
+    border-radius: 12px;
+    z-index: 10;
+}
+
+.iphone-screen-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+/* 9. 2-Column Bento Grid */
+.bento-grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.bento-card-unit {
+    background-color: var(--color-card);
+    border: 1.5px solid var(--color-card-border);
+    border-radius: var(--card-radius);
+    padding: 40px 32px 0 32px;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.bento-card-unit:hover {
+    border-color: rgba(255,255,255,0.12);
+    transform: translateY(-4px);
+}
+
+.bento-unit-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-bottom-circle-btn {
+    position: absolute;
+    bottom: 28px;
+    left: 32px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-title);
+    font-size: 15px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    z-index: 5;
+}
+
+.bento-card-unit:hover .bento-bottom-circle-btn {
+    background: rgba(255,255,255,0.15);
+    transform: scale(1.07);
+}
+
+.bento-phone-stage {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: auto;
+    width: 100%;
+}
+
+.bento-phone-frame {
+    width: 235px;
+    height: 310px;
+    background: #050505;
+    border: 5px solid #2a2a2d;
+    border-bottom: none;
+    border-radius: 34px 34px 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    box-shadow: 0 16px 45px rgba(0,0,0,0.9);
+}
+
+/* Screen-style preview (no phone frame — for desktop/web screenshots) */
+.bento-screen-stage {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: auto;
+    width: 100%;
+    padding-bottom: 0;
+}
+
+.bento-screen-frame {
+    width: 100%;
+    height: 280px;
+    background: #0a0a0a;
+    border: 1.5px solid rgba(255,255,255,0.07);
+    border-bottom: none;
+    border-radius: 14px 14px 0 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.9);
+}
+
+.bento-screen-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+/* 10. About Section */
+.about-me-section {
+    padding: 100px 0 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-bento-card {
+    background-color: var(--color-card);
+    border: 1.5px solid var(--color-card-border);
+    border-radius: var(--card-radius);
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 24px;
+}
+
+.about-col-title {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    color: var(--color-text-title);
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+}
+
+.about-col-text {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 26px;
+    color: var(--color-text-body);
+    margin-bottom: 14px;
+}
+
+/* Skills Tags */
+.skills-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 9999px;
+    font-size: 13px;
+    color: var(--color-text-body);
+    font-family: var(--font-body);
+}
+
+.timeline-entry {
+    margin-bottom: 22px;
+}
+
+.timeline-entry-date {
+    font-size: 12px;
+    color: var(--color-text-tag);
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.timeline-entry-role {
+    font-family: var(--font-medium);
+    font-size: 15px;
+    color: var(--color-text-title);
+    margin-bottom: 2px;
+}
+
+.timeline-entry-company {
+    font-size: 13px;
+    color: var(--color-text-muted);
+}
+
+/* 11. Contact Section */
+.contact-section {
+    padding: 80px 0 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-card-box {
+    background-color: var(--color-card);
+    border: 1.5px solid var(--color-card-border);
+    border-radius: var(--card-radius);
+    padding: 56px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.contact-label-row {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--color-text-body);
+}
+
+.contact-label-row a:hover {
+    color: #fff;
+}
+
+.contact-icon {
+    display: inline-block;
+    width: 18px;
+    text-align: center;
+    margin-right: 10px;
+    color: var(--color-crimson);
+    font-style: normal;
+}
+
+.contact-social-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.contact-social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 9999px;
+    font-size: 13px;
+    color: var(--color-text-body);
+    font-family: var(--font-body);
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-social-btn:hover {
+    border-color: rgba(255,255,255,0.3);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.contact-input-field {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 15px;
+    color: #fff;
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 0.2s ease;
+    margin-bottom: 12px;
+}
+
+.contact-input-field:focus {
+    border-color: var(--color-crimson);
+}
+
+.contact-input-field::placeholder {
+    color: rgba(255,255,255,0.3);
+}
+
+textarea.contact-input-field {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.contact-submit-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-crimson);
+    border-radius: 9999px;
+    padding: 12px 30px;
+    color: #fff;
+    font-size: 14px;
+    font-family: var(--font-body);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.contact-submit-pill:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
+
+/* 12. Footer */
+.site-bottom-footer {
+    padding: 36px 0;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    position: relative;
+    z-index: 1;
+}
+
+.footer-content-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer-copy-text {
+    font-size: 13px;
+    color: var(--color-text-muted);
+}
+
+/* 13. Responsive */
+@media (max-width: 860px) {
+    .featured-wine-card {
+        grid-template-columns: 1fr;
+        padding: 40px 28px 0 28px;
+        min-height: auto;
+    }
+
+    .featured-col-right {
+        justify-content: center;
+    }
+
+    .bento-grid-2col {
+        grid-template-columns: 1fr;
+    }
+
+    .about-bento-card {
+        grid-template-columns: 1fr;
+        padding: 32px 28px;
+    }
+
+    .contact-card-box {
+        grid-template-columns: 1fr;
+        padding: 36px 28px;
+    }
+
+    .nav-links-row {
+        gap: 0;
+    }
+
+    .nav-link-btn {
+        padding: 7px 10px;
+        font-size: 13px;
+    }
+
+    .side-scroll-rail {
+        display: none;
+    }
+
+    .hero-vertical-lines {
+        width: 100%;
+    }
+}
+
+@media (max-width: 540px) {
+    .nav-island-capsule {
+        height: 46px;
+        padding: 0 10px 0 8px;
+    }
+
+    .hero-title-mondwest {
+        font-size: 44px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- Floating Pill Navigation -->
+    <div class="nav-island-fixed" id="nav-island">
+        <nav class="nav-island-capsule" id="nav-capsule">
+            <a href="#hero" class="nav-monogram-box" aria-label="Tanmay Gharat Home">TG</a>
+            <div class="nav-sep"></div>
+            <ul class="nav-links-row" id="nav-links">
+                <li><a href="#work" class="nav-link-btn active" id="nav-work">Work</a></li>
+                <li><a href="#about" class="nav-link-btn" id="nav-about">About me</a></li>
+                <li><a href="#contact" class="nav-link-btn" id="nav-contact">Contact</a></li>
+                <li><a href="assets/TanmayGharatCV.pdf" target="_blank" class="nav-link-btn">Resume <span style="font-size:11px;opacity:0.8">↗</span></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Side Rail Scroll Dots -->
+    <div class="side-scroll-rail" id="side-rail">
+        <a href="#hero"    class="side-rail-dot active" aria-label="Hero"></a>
+        <a href="#work"    class="side-rail-dot" aria-label="Work"></a>
+        <a href="#about"   class="side-rail-dot" aria-label="About"></a>
+        <a href="#contact" class="side-rail-dot" aria-label="Contact"></a>
+    </div>
+
+    <main>
+
+        <!-- ── HERO ─────────────────────────────────────── -->
+        <section id="hero" class="hero-stage">
+            <div class="hero-crimson-orb"></div>
+            <div class="hero-crimson-blur"></div>
+            <div class="hero-vertical-lines">
+                <div class="v-line h-100"></div>
+                <div class="v-line h-260"></div>
+                <div class="v-line h-420"></div>
+                <div class="v-line h-580"></div>
+                <div class="v-line h-580"></div>
+                <div class="v-line h-420"></div>
+                <div class="v-line h-260"></div>
+                <div class="v-line h-100"></div>
+            </div>
+
+            <div class="hero-core">
+                <h1 class="hero-title-mondwest">
+                    Hi there,<br>
+                    I am Tanmay
+                </h1>
+                <p class="hero-subtitle-montreal">
+                    A Full Stack &amp; DevOps Developer with a passion for building scalable systems. Currently Co-Founder &amp; CTO at <strong>Astittva</strong>, India's next-generation AI multilingual platform.
+                </p>
+                <div>
+                    <a href="#contact" class="hero-btn-pill">Get in touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── WORK ──────────────────────────────────────── -->
+        <section id="work" class="shipped-section">
+            <div class="container-1000">
+                <h2 class="shipped-heading-mondwest">A few things I've shipped</h2>
+
+                <!-- Featured Hero Card — Astittva -->
+                <article class="featured-wine-card" id="feat-astittva">
+                    <div class="featured-col-left">
+                        <span class="card-tag-mono">ASTITTVA · 2025 – PRESENT</span>
+                        <h3 class="card-title-mondwest">Astrology Platform</h3>
+                        <p class="card-desc-montreal">
+                            Leading architecture and backend development as Co-Founder &amp; CTO for a platform delivering personalised guidance across 15+ Indian languages.
+                        </p>
+                        <button class="card-read-more-btn" type="button" onclick="openModal('astittva')">
+                            <span>Read more</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                    <div class="featured-col-right">
+                        <div class="featured-iphone-frame">
+                            <div class="iphone-top-island"></div>
+                            <img src="assets/ui_astittva_new.png" alt="Astittva App Preview" class="iphone-screen-image" style="object-position: top center;">
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2-Column Bento Grid -->
+                <div class="bento-grid-2col">
+
+                    <!-- Cosmicverse -->
+                    <article class="bento-card-unit" id="card-cosmicverse">
+                        <div class="bento-unit-top">
+                            <span class="card-tag-mono">FLUTTER &amp; FIREBASE · MAR 2024</span>
+                            <h3 class="card-title-mondwest">Cosmicverse</h3>
+                            <p class="card-desc-montreal">
+                                Comic-generation platform that turns user storylines into short personalised comics. Built with Flutter frontend and Firebase backend.
+                            </p>
+                        </div>
+                        <div class="bento-bottom-circle-btn" title="View Project" onclick="openModal('cosmicverse')">→</div>
+                    </article>
+
+                    <!-- Insurance Website -->
+                    <article class="bento-card-unit" id="card-insurance">
+                        <div class="bento-unit-top">
+                            <span class="card-tag-mono">MERN STACK · DEC 2024</span>
+                            <h3 class="card-title-mondwest">InsureHub</h3>
+                            <p class="card-desc-montreal">
+                                Full-stack insurance platform for browsing, comparing, and purchasing plans — with policy management and claim tracking.
+                            </p>
+                        </div>
+                        <div class="bento-bottom-circle-btn" title="View Project" onclick="openModal('insurance')">→</div>
+                    </article>
+
+                    <!-- Inshort -->
+                    <article class="bento-card-unit" id="card-inshort">
+                        <div class="bento-unit-top">
+                            <span class="card-tag-mono">REACT · JUL 2024</span>
+                            <h3 class="card-title-mondwest">Inshort</h3>
+                            <p class="card-desc-montreal">
+                                Responsive news-reading app with minimalist navigation and article summaries capped at 60 words for faster scanning and reading.
+                            </p>
+                        </div>
+                        <div class="bento-bottom-circle-btn" title="View Project" onclick="openModal('inshort')">→</div>
+                    </article>
+
+                    <!-- Grand Groceries -->
+                    <article class="bento-card-unit" id="card-groceries">
+                        <div class="bento-unit-top">
+                            <span class="card-tag-mono">UI/UX DESIGN · JUN 2024</span>
+                            <h3 class="card-title-mondwest">Grand Groceries</h3>
+                            <p class="card-desc-montreal">
+                                Designed 4 core screens — product listings, category views, product details, and profile — for a modern grocery shopping app.
+                            </p>
+                        </div>
+                        <div class="bento-bottom-circle-btn" title="View Project" onclick="openModal('groceries')">→</div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ── ABOUT ─────────────────────────────────────── -->
+        <section id="about" class="about-me-section">
+            <div class="container-1000">
+                <h2 class="shipped-heading-mondwest">A bit about me</h2>
+
+                <div class="about-bento-card">
+                    <!-- Left: Bio -->
+                    <div>
+                        <h3 class="about-col-title">Some context</h3>
+                        <p class="about-col-text">
+                            I'm a Computer Science student and Software Engineer based in Mumbai, Maharashtra. I specialise in designing and building high-throughput backend systems, resilient microservices, and cohesive multi-platform consumer experiences.
+                        </p>
+                        <p class="about-col-text">
+                            Currently serving as <strong style="color:rgba(255,255,255,0.9)">Co-Founder &amp; CTO at Astittva</strong>, I lead technical roadmap planning, multilingual tokenisation systems, and low-latency API architectures targeting 15+ Indian languages.
+                        </p>
+                        <p class="about-col-text">
+                            My interests sit at the intersection of backend engineering, product development, and DevOps — building systems that scale and experiences that matter.
+                        </p>
+                        <div class="skills-tag-row">
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">Firebase</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Timeline -->
+                    <div>
+                        <h3 class="about-col-title">Education &amp; Experience</h3>
+
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-date">2025 – Present</div>
+                            <div class="timeline-entry-role">Co-Founder &amp; CTO</div>
+                            <div class="timeline-entry-company">Astittva · AI Multilingual Astrology Platform</div>
+                        </div>
+
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-date">Jul 2025 – Dec 2025</div>
+                            <div class="timeline-entry-role">Full Stack Developer Intern</div>
+                            <div class="timeline-entry-company">ISML (IYPAN Educational Centre Pvt. Ltd.)</div>
+                        </div>
+
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-date">2023 – 2027</div>
+                            <div class="timeline-entry-role">B.Tech in Computer Science &amp; Engineering</div>
+                            <div class="timeline-entry-company">ITM Skills University — School of Future Tech</div>
+                        </div>
+
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-date">2021 – 2023</div>
+                            <div class="timeline-entry-role">Higher Secondary Certificate (HSC)</div>
+                            <div class="timeline-entry-company">Uran Education Society, Uran</div>
+                        </div>
+
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-date">Mar 2023</div>
+                            <div class="timeline-entry-role">Hackathon Participant</div>
+                            <div class="timeline-entry-company">Ace of Hacks · A.C. Patil College of Engineering</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── CONTACT ───────────────────────────────────── -->
+        <section id="contact" class="contact-section">
+            <div class="container-1000">
+                <div class="contact-card-box">
+                    <div>
+                        <h2 class="shipped-heading-mondwest" style="text-align:left;margin-bottom:14px;font-size:clamp(28px,3.2vw,42px)">Get in touch</h2>
+                        <p class="about-col-text">
+                            Whether you want to discuss backend architecture, a collaboration, or engineering roles — feel free to reach out.
+                        </p>
+                        <div class="contact-label-row">
+                            <div>
+                                <i class="contact-icon">✉</i>
+                                <a href="mailto:tanmaygharat1508@gmail.com">tanmaygharat1508@gmail.com</a>
+                            </div>
+                            <div>
+                                <i class="contact-icon">📞</i>
+                                <a href="tel:+918591863573">+91-8591863573</a>
+                            </div>
+                            <div>
+                                <i class="contact-icon">📍</i>
+                                Mumbai, Maharashtra, India
+                            </div>
+                        </div>
+                        <div class="contact-social-row">
+                            <a href="https://github.com/" target="_blank" class="contact-social-btn">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                                GitHub
+                            </a>
+                            <a href="https://linkedin.com/" target="_blank" class="contact-social-btn">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)">
+                            <input type="text" class="contact-input-field" placeholder="Name" required>
+                            <input type="email" class="contact-input-field" placeholder="Email" required>
+                            <textarea class="contact-input-field" placeholder="Your message" required></textarea>
+                            <button type="submit" class="contact-submit-pill">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Footer -->
+    <footer class="site-bottom-footer">
+        <div class="container-1000 footer-content-flex">
+            <p class="footer-copy-text">© 2026 Tanmay Gharat. All rights reserved.</p>
+            <div style="font-size:13px;color:var(--color-text-muted);">Mumbai, India</div>
+        </div>
+    </footer>
+
+    <!-- Project Detail Modal -->
+    <div id="project-modal" style="
+        display:none;
+        position:fixed;inset:0;
+        background:rgba(0,0,0,0.88);
+        backdrop-filter:blur(20px);
+        -webkit-backdrop-filter:blur(20px);
+        z-index:10000;
+        align-items:center;
+        justify-content:center;
+        padding:24px;
+    ">
+        <div style="
+            background:rgb(18,18,18);
+            border:1.5px solid rgba(255,255,255,0.1);
+            border-radius:var(--card-radius);
+            width:100%;
+            max-width:760px;
+            max-height:88vh;
+            overflow-y:auto;
+            position:relative;
+            padding:48px;
+            box-shadow:0 32px 90px rgba(0,0,0,0.98);
+        ">
+            <button onclick="closeModal()" style="
+                position:absolute;top:22px;right:22px;
+                width:36px;height:36px;border-radius:50%;
+                background:rgba(255,255,255,0.08);
+                color:#fff;font-size:16px;
+                display:flex;align-items:center;justify-content:center;
+                cursor:pointer;border:none;
+                transition:background 0.2s ease;
+            " onmouseover="this.style.background='rgba(255,255,255,0.18)'"
+               onmouseout="this.style.background='rgba(255,255,255,0.08)'">✕</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+// ── Modal Data ──────────────────────────────────────────
+const projects = {
+    astittva: {
+        tag: 'ASTITTVA · 2025 – PRESENT',
+        title: 'Astrology Platform',
+        desc: `As Co-Founder and CTO, I lead all technical development for Astittva — an AI-powered astrology platform built to deliver personalised guidance across 15+ Indian languages.`,
+        bullets: [
+            'Leading application architecture, backend systems, and API integration for a multilingual rollout.',
+            'Designed low-latency API architectures supporting 15+ Indian language tokenisation pipelines.',
+            'Supporting product development and technical roadmap planning end-to-end.',
+            'Stack: Node.js, Python, Firebase, REST APIs, Flutter.'
+        ],
+        img: null
+    },
+    cosmicverse: {
+        tag: 'FLUTTER & FIREBASE · MAR 2024',
+        title: 'Cosmicverse — Comic Generation Platform',
+        desc: 'Built an innovative platform that turns user-provided storylines into short personalised comics, combining a Flutter frontend with a Firebase backend.',
+        bullets: [
+            'Designed and implemented UI/UX across comic creation and browsing flows.',
+            'Integrated API connections between Flutter frontend and Firebase backend.',
+            'Built comic strip workflow: story prompt → character hub → scene builder → AI generation.'
+        ],
+        img: null
+    },
+    insurance: {
+        tag: 'MERN STACK · DEC 2024',
+        title: 'InsureHub — Insurance Platform',
+        desc: 'Full-stack insurance platform enabling users to browse, compare, and purchase plans — with integrated policy management and real-time claim tracking.',
+        bullets: [
+            'Developed a responsive UI and REST API using MongoDB, Express.js, React, and Node.js.',
+            'Built policy management system with claim status tracking.',
+            'Implemented premium calculator, coverage comparison, and checkout flows.'
+        ],
+        img: null
+    },
+    inshort: {
+        tag: 'REACT · JUL 2024',
+        title: 'Inshort — News Platform',
+        desc: 'Responsive news-reading app with minimalist navigation and article summaries capped at 60 words — built for speed and clarity.',
+        bullets: [
+            'Optimised feed and reading flow to cut time-to-read per article vs standard news formats.',
+            'Built category filtering (Trending, Tech, World, Business, Sports, Science).',
+            'Minimalist card-based layout with bookmark functionality.'
+        ],
+        img: null
+    },
+    groceries: {
+        tag: 'UI/UX DESIGN · JUN 2024',
+        title: 'Grand Groceries — UI/UX Design',
+        desc: 'Designed 4 core screens for a modern grocery shopping app — product listings, category views, product details, and user profile.',
+        bullets: [
+            'Designed end-to-end shopping flow from browsing to checkout.',
+            'Created category views, product listing cards, and search & filter screens.',
+            'Applied modern mobile UI principles: clear hierarchy, readable typography, accessible colour contrast.'
+        ],
+        img: null
+    }
+};
+
+function openModal(key) {
+    const p = projects[key];
+    if (!p) return;
+    document.getElementById('modal-body').innerHTML = `
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--color-text-tag);text-transform:uppercase;letter-spacing:0.04em;">${p.tag}</span>
+        <h2 style="font-family:var(--font-heading);font-size:clamp(24px,3vw,34px);color:var(--color-text-title);font-weight:400;margin:12px 0 14px;letter-spacing:-0.2px;">${p.title}</h2>
+        <p style="font-family:var(--font-body);font-size:15px;line-height:26px;color:var(--color-text-body);margin-bottom:20px;">${p.desc}</p>
+        ${p.img ? `<img src="${p.img}" alt="${p.title}" style="width:100%;border-radius:16px;margin-bottom:24px;object-fit:cover;max-height:300px;">` : ''}
+        <ul style="padding-left:20px;display:flex;flex-direction:column;gap:10px;">
+            ${p.bullets.map(b => `<li style="font-family:var(--font-body);font-size:14px;line-height:22px;color:var(--color-text-body);">${b}</li>`).join('')}
+        </ul>
+    `;
+    const modal = document.getElementById('project-modal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    document.getElementById('project-modal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+document.getElementById('project-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+});
+
+// ── Contact Form ───────────────────────────────────────
+function handleContactSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    const orig = btn.textContent;
+    btn.textContent = 'Sent! ✓';
+    btn.style.background = '#1a6644';
+    setTimeout(() => {
+        btn.textContent = orig;
+        btn.style.background = 'var(--color-crimson)';
+        e.target.reset();
+    }, 3000);
+}
+
+// ── Scroll Tracking for Nav & Side Dots ───────────────
+const sections = ['hero','work','about','contact'];
+const navLinks = {
+    work:    document.getElementById('nav-work'),
+    about:   document.getElementById('nav-about'),
+    contact: document.getElementById('nav-contact')
+};
+const railDots = document.querySelectorAll('.side-rail-dot');
+
+function onScroll() {
+    const scrollY = window.scrollY + window.innerHeight * 0.35;
+
+    sections.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const top = el.offsetTop;
+        const bottom = top + el.offsetHeight;
+        if (scrollY >= top && scrollY < bottom) {
+            railDots.forEach(d => d.classList.remove('active'));
+            railDots[i]?.classList.add('active');
+
+            Object.values(navLinks).forEach(l => l?.classList.remove('active'));
+            navLinks[id]?.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ── Make bento cards clickable ────────────────────────
+document.querySelectorAll('.bento-card-unit').forEach(card => {
+    const btn = card.querySelector('.bento-bottom-circle-btn');
+    if (btn) {
+        card.addEventListener('click', function(e) {
+            if (e.target.closest('.bento-bottom-circle-btn')) return;
+            btn.click();
+        });
+    }
+});
+
+document.querySelector('.featured-wine-card')?.addEventListener('click', function() {
+    openModal('astittva');
+});
+    </script>
+</body>
+</html>
